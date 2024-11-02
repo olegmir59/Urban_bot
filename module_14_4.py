@@ -4,8 +4,6 @@
 # Задача "Продуктовая база":
 
 from crud_functions import *
-    #initiate_db, get_all_products)
-
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters.state import State, StatesGroup
@@ -14,10 +12,11 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 products_list = get_all_products()
-#for product in products_list:
+
+# for product in products_list:
 #    print(f"title: {product[1]} | description: {product[2]} |  price: {product[3]}")
 
-api = "7547999409:AAG0rqf1gRbyEp7zfz5HK6FR2iI_SALwBB4"
+api = "здесь секретный код"
 
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
