@@ -9,12 +9,14 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+import sqlite3
+conn = sqlite3.connect("bot_database.db")
 
 
-products_list = get_all_products()
+products_list = get_all_products(conn)
 
 # for product in products_list:
-#    print(f"title: {product[1]} | description: {product[2]} |  price: {product[3]}")
+#     print(f"title: {product[1]} | description: {product[2]} |  price: {product[3]}")
 
 api = "здесь секретный код"
 
@@ -112,5 +114,5 @@ async def all_message(message):
 
 
 if __name__ == "__main__":
-    initiate_db()
+    initiate_db(conn)
     executor.start_polling(dp, skip_updates=True)
